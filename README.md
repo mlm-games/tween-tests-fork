@@ -8,7 +8,7 @@ This fork is almost the same as the original but updated the godot version from 
 
 ## The animation:
 
-![](tween_tests.gif)
+![](tween_tests_slow.gif)
 
 - Mastodon: https://framapiaf.org/@timkrief/110592647920366149
 - Twitter: https://twitter.com/TimKrief/status/1672163107383197696
