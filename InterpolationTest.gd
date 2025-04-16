@@ -1,6 +1,13 @@
 extends Control
 
 var ease_types = [
+		Tween.EASE_IN,
+		Tween.EASE_OUT,
+		Tween.EASE_IN_OUT,
+		Tween.EASE_OUT_IN
+]
+
+var ease_names = [
 		"EASE_IN",
 		"EASE_OUT",
 		"EASE_IN_OUT",
@@ -8,6 +15,21 @@ var ease_types = [
 ]
 
 var transition_types = [
+		Tween.TRANS_LINEAR,
+		Tween.TRANS_SINE,
+		Tween.TRANS_QUINT,
+		Tween.TRANS_QUART,
+		Tween.TRANS_QUAD,
+		Tween.TRANS_EXPO,
+		Tween.TRANS_ELASTIC,
+		Tween.TRANS_CUBIC,
+		Tween.TRANS_CIRC,
+		Tween.TRANS_BOUNCE,
+		Tween.TRANS_BACK,
+		Tween.TRANS_SPRING 
+]
+
+var transition_names = [
 		"TRANS_LINEAR",
 		"TRANS_SINE",
 		"TRANS_QUINT",
@@ -18,7 +40,8 @@ var transition_types = [
 		"TRANS_CUBIC",
 		"TRANS_CIRC",
 		"TRANS_BOUNCE",
-		"TRANS_BACK"
+		"TRANS_BACK",
+		"TRANS_SPRING"
 ]
 
 var sprites = []
@@ -41,38 +64,38 @@ func _ready():
 		timer.timeout.connect(_on_timer_timeout)
 		timer.one_shot = true
 		
-		for j in range(len(transition_types)):
+		for j in range(len(transition_names)):
 				var trans_label = Label.new()
-				trans_label.text = transition_types[j]
+				trans_label.text = transition_names[j]
 				trans_label.position = Vector2(
 						30,
-						first_row_height + (get_viewport_rect().size.y - first_row_height) / (len(transition_types)) * j
+						first_row_height + (get_viewport_rect().size.y - first_row_height) / (len(transition_names)) * j
 				)
 				add_child(trans_label)
 		
-		for i in range(len(ease_types)):
+		for i in range(len(ease_names)):
 				var ease_label = Label.new()
-				ease_label.text = ease_types[i]
+				ease_label.text = ease_names[i]
 				ease_label.position = Vector2(
-						first_col_width + (get_viewport_rect().size.x - first_col_width) / (len(ease_types)) * i,
+						first_col_width + (get_viewport_rect().size.x - first_col_width) / (len(ease_names)) * i,
 						30
 				)
 				add_child(ease_label)
 				
 				sprites.append([])
 						
-				for j in range(len(transition_types)):
+				for j in range(len(transition_names)):
 						var new_sprite = ColorRect.new()
 						add_child(new_sprite)
-						new_sprite.position.x = first_col_width + (get_viewport_rect().size.x - first_col_width) / (len(ease_types)) * i - 10
-						new_sprite.position.y = first_row_height + (get_viewport_rect().size.y - first_row_height) / (len(transition_types)) * j
-						new_sprite.size = Vector2((get_viewport_rect().size.x - first_col_width) / (len(ease_types)) * 0.8 + 50, 10)
+						new_sprite.position.x = first_col_width + (get_viewport_rect().size.x - first_col_width) / (len(ease_names)) * i - 10
+						new_sprite.position.y = first_row_height + (get_viewport_rect().size.y - first_row_height) / (len(transition_names)) * j
+						new_sprite.size = Vector2((get_viewport_rect().size.x - first_col_width) / (len(ease_names)) * 0.8 + 50, 10)
 						new_sprite.modulate = Color(1, 1, 1, 0.05)
 						
 						sprites[i].append(ColorRect.new())
 						add_child(sprites[i][j])
-						sprites[i][j].position.x = first_col_width + (get_viewport_rect().size.x - first_col_width) / (len(ease_types)) * i
-						sprites[i][j].position.y = first_row_height + (get_viewport_rect().size.y - first_row_height) / (len(transition_types)) * j - 10
+						sprites[i][j].position.x = first_col_width + (get_viewport_rect().size.x - first_col_width) / (len(ease_names)) * i
+						sprites[i][j].position.y = first_row_height + (get_viewport_rect().size.y - first_row_height) / (len(transition_names)) * j - 10
 						sprites[i][j].size = Vector2(30, 30)
 		
 		# Start the animation
@@ -85,12 +108,11 @@ func _on_timer_timeout():
 		
 		for i in range(len(ease_types)):
 				for j in range(len(transition_types)):
-						var start_x = first_col_width + (get_viewport_rect().size.x - first_col_width) / (len(ease_types)) * (i + (0.8 if back else 0))
-						var end_x = first_col_width + (get_viewport_rect().size.x - first_col_width) / (len(ease_types)) * (i + (0 if back else 0.8))
+						var start_x = first_col_width + (get_viewport_rect().size.x - first_col_width) / (len(ease_names)) * (i + (0.8 if back else 0))
+						var end_x = first_col_width + (get_viewport_rect().size.x - first_col_width) / (len(ease_names)) * (i + (0 if back else 0.8))
 						
-						# Convert the old easing and transition indices to the new enum values
-						var trans_type = j
-						var ease_type = i
+						var trans_type = transition_types[j]
+						var ease_type = ease_types[i]
 						
 						# Create a separate tween for each sprite
 						var sprite_tween = tween.parallel()

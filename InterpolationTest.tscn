@@ -23,11 +23,12 @@ autostart = true
 [node name="Label" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0.219608)
 layout_mode = 0
-offset_left = 30.9683
-offset_top = 25.6289
-offset_right = 114.968
-offset_bottom = 56.6289
-text = "Tween Tests originally
+offset_left = 14.0
+offset_top = 12.0
+offset_right = 117.0
+offset_bottom = 87.0
+text = "Tween Tests 
+originally
 by @TimKrief"
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
