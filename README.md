@@ -1,6 +1,10 @@
-# TweenTests
+# TweenTests 
 
-I shared an animation showing all possible tweening transition types and easing types in Godot 3.5 and people asked for the source so here we are :)
+The test updated to godot 4.4 with other 
+
+
+Original readme's comment
+> I shared an animation showing all possible tweening transition types and easing types in Godot 3.5 and people asked for the source so here we are :)
 
 ## The animation:
 

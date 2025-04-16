@@ -1,29 +1,33 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://bpssvrxfevaah"]
 
-[ext_resource path="res://InterpolationTest.gd" type="Script" id=2]
+[ext_resource type="Script" uid="uid://dc587imc6bg47" path="res://InterpolationTest.gd" id="2"]
 
 [node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 2 )
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.12549 )
-
-[node name="Tween" type="Tween" parent="."]
+color = Color(0, 0, 0, 0.12549)
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
 [node name="Label" type="Label" parent="."]
-modulate = Color( 1, 1, 1, 0.219608 )
-margin_left = 30.9683
-margin_top = 25.6289
-margin_right = 114.968
-margin_bottom = 56.6289
-text = "Tween Tests
+modulate = Color(1, 1, 1, 0.219608)
+layout_mode = 0
+offset_left = 30.9683
+offset_top = 25.6289
+offset_right = 114.968
+offset_bottom = 56.6289
+text = "Tween Tests originally
 by @TimKrief"
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
