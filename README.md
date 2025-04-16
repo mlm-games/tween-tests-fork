@@ -1,9 +1,9 @@
 # TweenTests 
 
-The test updated to godot 4.4 with other 
+This fork is almost the same as the original but updated the godot version from 3.5.3 to 4.4.1 and added the spring tween
 
 
-Original readme's comment
+# Original readme content below 
 > I shared an animation showing all possible tweening transition types and easing types in Godot 3.5 and people asked for the source so here we are :)
 
 ## The animation:
