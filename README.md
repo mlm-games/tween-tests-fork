@@ -2,7 +2,7 @@
 
 This fork is almost the same as the original but updated the godot version from 3.5.3 to 4.4.1 and added the spring tween
 
-![](tween_tests.gif)
+![](tween_tests_slow.gif)
 
 # Original readme content below 
 > I shared an animation showing all possible tweening transition types and easing types in Godot 3.5 and people asked for the source so here we are :)
